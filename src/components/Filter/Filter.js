@@ -1,15 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { filterChange } from 'redux/filter/filterSlice';
+import { useDispatch } from 'react-redux';
+
 import css from './Filter.module.css';
 
 const Filter = () => {
-  const filter = useSelector(state => state.filter);
+  const filter = 1;
   const dispatch = useDispatch();
 
-  const onFilterChange = event => {
-    const text = event.currentTarget.value;
-    dispatch(filterChange({ text }));
-  };
+  const onFilterChange = event => {};
   return (
     <>
       <p>Find contact by name</p>
