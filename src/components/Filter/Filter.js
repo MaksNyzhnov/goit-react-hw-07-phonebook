@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import css from './Filter.module.css';
 
 const Filter = () => {
-  const filter = 1;
+  const filter = '';
   const dispatch = useDispatch();
 
   const onFilterChange = event => {};

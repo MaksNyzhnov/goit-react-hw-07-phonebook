@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { nanoid } from 'nanoid';
-import { addContact } from 'redux/contactsSlice';
 import css from './Form.module.css';
+import { getContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
 
 const inputNameId = nanoid(5);
 const inputPhoneId = nanoid(5);
@@ -16,7 +17,7 @@ const Form = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [currentContact, setCurrentContact] = useState({});
-  const contacts = useSelector(state => state.contacts.contacts.items);
+  const contacts = useSelector(getContacts);
 
   const dispatch = useDispatch();
 
@@ -38,14 +39,12 @@ const Form = () => {
       showAlert(contact.name);
       return;
     }
-
-    dispatch(addContact(contact));
+    dispatch(addContact(currentContact));
   };
 
   const onFormSubmit = event => {
     event.preventDefault();
 
-    currentContact.id = nanoid(5);
     onAddContact(currentContact);
 
     formReset();
