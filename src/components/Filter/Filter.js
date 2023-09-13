@@ -6,11 +6,10 @@ import { getFilter } from 'redux/selectors';
 
 const Filter = () => {
   const filter = useSelector(getFilter);
-  console.log(filter);
   const dispatch = useDispatch();
 
   const onFilterChange = event => {
-    const text = event.currentTarget.value;
+    const text = event.target.value;
     dispatch(filterChange({ text }));
   };
   return (

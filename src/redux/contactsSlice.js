@@ -13,7 +13,7 @@ const ContactsSlice = createSlice({
   },
   reducers: {
     filterChange(state, action) {
-      return action.payload.text;
+      state.filter = action.payload.text;
     },
   },
   extraReducers: {
